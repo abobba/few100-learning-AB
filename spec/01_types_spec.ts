@@ -90,4 +90,97 @@ describe('types', () => {
             });
         });
     });
+
+    describe('arrays', () => {
+        it('has them', () => {
+            const things = [];
+            things[0] = 'Morning!';
+            things[1] = 99;
+            things[999] = things;
+            expect(things[999][0]).toBe('Morning!');
+
+            const numbers = [1, 12, 3];
+
+            const friends: string[] = [];
+
+            friends[0] = 'David';
+            friends[1] = 'Reggie';
+
+            const stuff: Array<number | string> = [5, 6, 'yogurt'];
+
+            const lotteryNumbers: Array<number> = [];
+        });
+        describe('arrays as tuples', () => {
+            it('basic example', () => {
+
+                let d1: [boolean, string, string];
+                d1 = [false, 'tacos', 'beer'];
+
+
+
+                // type ThingyWithLetters = string;
+
+                // const name:ThingyWithLetters = 'Hello';
+
+                type Age = number;
+                type Person = [string, string, Age, string];
+
+                const warren: Person = ['Warren', 'Ellis', 55, 'Musician'];
+
+
+            });
+            it('an example - oop style', () => {
+
+
+                interface FormatNameResult {
+                    fullName: string;
+                    length: number;
+                }
+                // public string FormatName(first string, last string)
+                function formatName(first: string, last: string): FormatNameResult {
+                    const fullName = `${last}, ${first}`;
+                    return {
+                        fullName: fullName,
+                        length: fullName.length
+                    }
+                }
+
+                const result = formatName('Han', 'Solo');
+                expect(result.fullName).toBe('Solo, Han');
+                expect(result.length).toBe(9);
+
+
+            });
+            it('an example with a tuple', () => {
+
+                type FormatNameResult = [string, number];
+
+                function formatName(first: string, last: string): FormatNameResult {
+                    const fullName = `${last}, ${first}`;
+                    return [fullName, fullName.length];
+                }
+
+                const result = formatName('Han', 'Solo');
+
+                // const name = result[0];
+
+                // const len = result[1];
+                const [name, len] = result;
+
+
+
+                expect(name).toBe('Solo, Han');
+                expect(len).toBe(9);
+
+
+                const numbers = [1, 2, 3, 4, 5, 6, 7];
+
+                const [first, ...others] = numbers;
+
+                expect(first).toBe(1);
+                expect(others).toEqual([2, 3, 4, 5, 6, 7]);
+
+            });
+        });
+    });
 });
