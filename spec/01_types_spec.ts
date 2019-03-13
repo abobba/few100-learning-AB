@@ -1,4 +1,3 @@
-
 describe('types', () => {
     describe('declaring variables', () => {
         it('using the let keyword', () => {
