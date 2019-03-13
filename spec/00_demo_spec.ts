@@ -7,6 +7,6 @@ describe('Writing a specit', () => {
         const answer = a + b;
 
         //Then - Assert
-        expect(answer).toBe(31);
+        expect(answer).toBe(30);
     });
 });

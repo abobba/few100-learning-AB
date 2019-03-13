@@ -24,5 +24,70 @@ describe('types', () => {
 
             movie.yearReleased = 1977;
         });
+        it('why using var is bad for your health', () => {
+            const age = 22;
+            if (age > 21) {
+                var message = 'Old Enough!';
+                //let message = 'Old Enough!';
+            }
+
+            expect(message).toBe('Old Enough!');
+
+
+        });
+    });
+    describe('literals in typescript', () => {
+
+
+        it('numeric literals', () => {
+            let x: number;
+            x = 12;
+            x = 3.0;
+            x = 3_000_000;
+            x = 0xff;
+            x = 0b10101;
+            x = 0o744;
+
+        });
+        it('has booleans', () => {
+            let x: boolean;
+            x = true;
+            x = false;
+
+            expect("").toBeFalsy();
+            expect(-1).toBeTruthy();
+
+        });
+        describe('string literals', () => {
+            it('does not care if you use single or double quotes', () => {
+
+                const f1 = "Bob";
+                const f2 = 'Bob';
+                expect(f1).toBe(f2);
+
+                const f3 = "His name is Bob O'Connor";
+                const fb = 'His name is Bob O\'Connor';
+                const f4 = 'She said "Is it lunch time yet?"';
+                const f4b = "She said \"Is it lunch time yet?\"";
+
+            });
+            it('has template string', () => {
+                const f1 = "Bob";
+                const f2 = `Bob`;
+                expect(f1).toBe(f2);
+                const f3 = `Multi
+
+    line
+    
+    
+    strings!`;
+
+                console.log(f3);
+                const title = 'Walden', author = 'Thoreau';
+
+                const info = `That book is called ${title} by ${author}`;
+                console.log(info);
+            });
+        });
     });
 });
