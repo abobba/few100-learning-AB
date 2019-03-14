@@ -1,3 +1,20 @@
 h1 {
-    color:red;
+    color:blueviolet;
+}
+
+.square {
+    width: 25%;
+    background: purple;
+    padding-bottom: 25%;
+    float: left;
+    margin: 1.5%;
+    border-radius: 30.6%;
+}
+
+.square.loser {
+    background: lightpink;
+}
+
+.square.winner {
+    background: red;
 }
